@@ -43,6 +43,12 @@ class Characters(ResourceBase):
     def get_resource_urls(self):
         return self.home_url + self.relative_url
 
+    def get_sample_data(self, id_=1):
+        complete_url = self.home_url + self.relative_url + f"/{id_}"
+        response = hit_url(complete_url)
+        data = response.json()
+        return data
+
 
 if __name__ == '__main__':
     char = Characters()
